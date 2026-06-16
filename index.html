@@ -5,46 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4rtystudios</title>
     <style>
+        /* Global Styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Container */
+        .header-container {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ff0000;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #ff3333;
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-container p {
+            color: #cccccc;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            border: 1px solid #ff0000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .tab-button:hover {
+            background-color: #330000;
+        }
+
+        .tab-button.active {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        /* Tab Content Areas */
+        .tab-content {
+            display: none; /* Hidden by default */
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #ff0000;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .tab-content.active {
+            display: block; /* Shows when active */
+        }
+
+        /* Profile Layout (Main Dev) */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            max-width: 400px;
-            width: 100%;
-        }
-        h1 {
-            color: #007aff;
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.5;
+
+        .pfp {
+            width: 120px;
+            height: 120px;
+            background-color: #333;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            /* To add an actual image, change the background-color to: background-image: url('YOUR_IMAGE_LINK'); background-size: cover; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #666;
+            font-size: 0.8rem;
         }
+
+        .profile-name {
+            color: #ff3333;
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+        }
+
+        .profile-title {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 15px 0;
+        }
+
+        .profile-desc {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Social Links */
+        .socials {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: #f2f2f2;
+            text-decoration: none;
+            background-color: #262626;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid #4d0000;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            border-color: #ff0000;
+            background-color: #330000;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello!</h1>
-        <p>This website is reserved for the official 4rtystudios team to edit.</p>
+    <div class="header-container">
+        <h1>4rtystudios</h1>
+        <p>This website is reserved for the official team to edit.</p>
     </div>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('main-dev')">Main Dev / Owner</button>
+        <button class="tab-button" onclick="openTab('other-devs')">Other Devs</button>
+    </div>
+
+    <div id="main-dev" class="tab-content active">
+        <div class="profile-card">
+            <div class="pfp">[PFP Placeholder]</div>
+            <h2 class="profile-name">Your Name/Handle</h2>
+            <h3 class="profile-title">Founder & Lead Developer</h3>
+            <p class="profile-desc">
+                <strong>Age:</strong> [Your Age]<br><br>
+                Brief description about yourself. You can talk about what you do at 4rtystudios, your coding journey, or what projects you are currently working on.
+            </p>
+            
+            <div class="socials">
+                <a href="#" class="social-link">Twitter / X</a>
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">YouTube</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="other-devs" class="tab-content">
+        <div class="profile-card">
+            <h2 class="profile-name">Other Developers</h2>
+            <p style="margin-top: 20px; font-size: 1.2rem; color: #aaaaaa; letter-spacing: 2px;">TBD</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected tab content and mark button as active
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
+
 
